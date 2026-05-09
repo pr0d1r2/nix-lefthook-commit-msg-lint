@@ -4,7 +4,7 @@
 # subject max 72 chars, blank line after subject, body lines max 80 chars.
 # Skips merge, fixup, squash, and amend commits.
 # Usage: lefthook-commit-msg-lint <message-file>
-# NOTE: sourced by writeShellApplication — no shebang or set needed.
+# NOTE: sourced by writeShellApplication - no shebang or set needed.
 
 msg_file="$1"
 subject=$(head -1 "$msg_file")
