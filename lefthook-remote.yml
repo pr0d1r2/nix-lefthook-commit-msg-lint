@@ -1,0 +1,5 @@
+---
+commit-msg:
+  commands:
+    commit-msg-lint:
+      run: timeout ${LEFTHOOK_COMMIT_MSG_LINT_TIMEOUT:-10} lefthook-commit-msg-lint {1}
