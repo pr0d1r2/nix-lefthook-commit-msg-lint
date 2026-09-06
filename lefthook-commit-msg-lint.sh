@@ -1,7 +1,7 @@
 # shellcheck shell=bash
 # Lefthook-compatible commit message linter.
 # Enforces: capitalized subject (or conventional commit prefix), no trailing period,
-# subject max 72 chars, blank line after subject, body lines max 80 chars.
+# subject max 72 chars, and blank line after subject.
 # Skips merge, fixup, squash, and amend commits.
 # Usage: lefthook-commit-msg-lint <message-file>
 # NOTE: sourced by writeShellApplication - no shebang or set needed.
@@ -34,15 +34,6 @@ line2=$(sed -n '2p' "$msg_file")
 if [ -n "$line2" ]; then
     errors+=("Second line must be blank (separate subject from body)")
 fi
-
-line_num=0
-while IFS= read -r line; do
-    line_num=$((line_num + 1))
-    [ "$line_num" -le 2 ] && continue
-    if [ "${#line}" -gt 80 ]; then
-        errors+=("Line $line_num exceeds 80 characters (${#line})")
-    fi
-done <"$msg_file"
 
 if [ ${#errors[@]} -gt 0 ]; then
     echo "Commit message lint errors:"

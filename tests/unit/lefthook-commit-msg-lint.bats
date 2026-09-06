@@ -74,11 +74,10 @@ setup() {
     assert_success
 }
 
-@test "body line over 80 chars fails" {
+@test "body line over 80 chars passes" {
     printf 'Add feature\n\n%s\n' "$(python3 -c "print('x' * 81)")" > "$TMP/msg"
     run lefthook-commit-msg-lint "$TMP/msg"
-    assert_failure
-    assert_output --partial "80 characters"
+    assert_success
 }
 
 @test "valid message with body passes" {

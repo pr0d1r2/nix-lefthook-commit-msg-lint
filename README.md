@@ -6,7 +6,7 @@
 
 Lefthook-compatible commit message linter, packaged as a Nix flake.
 
-Enforces standard commit message conventions: capitalized subject (or conventional commit prefix like `feat:`, `fix:`), no trailing period, subject max 72 characters, blank second line, body lines max 80 characters. Skips merge, fixup, squash, and amend commits.
+Enforces standard commit message conventions: capitalized subject (or conventional commit prefix like `feat:`, `fix:`), no trailing period, subject max 72 characters, and a blank second line. Body lines have no length limit. Skips merge, fixup, squash, and amend commits.
 
 ## Usage
 
